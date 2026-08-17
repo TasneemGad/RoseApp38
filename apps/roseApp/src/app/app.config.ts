@@ -50,11 +50,6 @@ document.documentElement.dir = (DEFAULT_LANG as string) === 'ar' ? 'rtl' : 'ltr'
       },
     },
 
-    {
-      provide: LocationStrategy,
-      useClass: HashLocationStrategy,
-    },
-
     provideRouter(appRoutes),
   ],
 };
