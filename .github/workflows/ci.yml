@@ -103,6 +103,10 @@ jobs:
           cp -r dist/apps/adminDashboard/* deploy-output/adminDashboard/ || cp -r dist/adminDashboard/* deploy-output/adminDashboard/
           mkdir -p deploy-output/roseApp
           cp -r dist/apps/roseApp/* deploy-output/roseApp/ || cp -r dist/roseApp/* deploy-output/roseApp/
+          cp apps/shell/public/404.html deploy-output/404.html
+          cp apps/shell/public/404.html deploy-output/authApp/404.html
+          cp apps/shell/public/404.html deploy-output/adminDashboard/404.html
+          cp apps/shell/public/404.html deploy-output/roseApp/404.html
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
