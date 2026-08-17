@@ -11,6 +11,7 @@ import { providePrimeNG } from 'primeng/config';
 import { CART_PORT, CartStore } from '@org/ui';
 import { appRoutes } from './app.routes';
 import { authenticationInterceptor } from '@org/auth';
+import { LocationStrategy, HashLocationStrategy } from '@angular/common';
 
 
 const DEFAULT_LANG: 'en' | 'ar' = 'en';  
@@ -49,6 +50,10 @@ document.documentElement.dir = (DEFAULT_LANG as string) === 'ar' ? 'rtl' : 'ltr'
       },
     },
 
+    {
+      provide: LocationStrategy,
+      useClass: HashLocationStrategy,
+    },
 
     provideRouter(appRoutes),
   ],
