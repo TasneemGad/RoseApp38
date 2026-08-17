@@ -7,17 +7,24 @@
     <base href="/RoseApp38/" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="icon" type="image/x-icon" href="favicon.ico" />
-   <script type="text/javascript">
-  var segmentCount = 2; 
-  var l = window.location;
-  l.replace(
-    l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') +
-    l.pathname.split('/').slice(0, 1 + segmentCount).join('/') + '/?/' +
-    l.pathname.slice(1).split('/').slice(segmentCount).join('/').replace(/&/g, '~and~') +
-    (l.search ? '&' + l.search.slice(1) : '') +
-    l.hash
-  );
-</script>
+ <script type="text/javascript">
+      // 1. تحديد عدد أجزاء الـ Base Path 
+      // بالنسبة لـ RoseApp38 فهو segment 1 للـ repo
+      var pathSegmentsToKeep = 1;
+
+      var l = window.location;
+      
+      // حماية ضد الـ Infinite Loop: لو الرابط فيه بالفعل ?/ ما نكررش التحويل
+      if (l.search.indexOf('?/') === -1) {
+        l.replace(
+          l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') +
+          l.pathname.split('/').slice(0, 1 + pathSegmentsToKeep).join('/') + '/?/' +
+          l.pathname.slice(1).split('/').slice(pathSegmentsToKeep).join('/').replace(/&/g, '~and~') +
+          (l.search ? '&' + l.search.slice(1) : '') +
+          l.hash
+        );
+      }
+    </script>
   </head>
 
   <body>
