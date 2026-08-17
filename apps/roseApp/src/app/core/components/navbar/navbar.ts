@@ -120,11 +120,11 @@ firstName = this.authService.getUserData()?.firstName || '';
   notificationCount = signal<number>(0);
 
   onLove(): void {
-    this.router.navigateByUrl('/roseApp/wishlist');
+    this.router.navigateByUrl('/wishlist');
   }
 
   onCart(): void {
-    this.router.navigateByUrl('/roseApp/checkout/cart');
+    this.router.navigateByUrl('/checkout/cart');
   }
 
   onNotifications(): void {
