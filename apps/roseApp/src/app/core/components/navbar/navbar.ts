@@ -124,7 +124,7 @@ firstName = this.authService.getUserData()?.firstName || '';
   }
 
   onCart(): void {
-    this.router.navigateByUrl('/checkout/cart');
+    this.router.navigateByUrl('/roseApp/checkout/cart');
   }
 
   onNotifications(): void {
